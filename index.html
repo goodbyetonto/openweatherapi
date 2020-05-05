@@ -19,22 +19,24 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 search">
+            <div class="col-md-3 search">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" id="cityField" placeholder="Search By City Name"
+                        aria-label="Search By City" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2 cityBtn">Search</button>
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" id="zipField" placeholder="Search By Zip Code"
+                        aria-label="Zip Code Search" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2 zipBtn">Search</button>
                     </div>
                 </div>
-
+                <div class="list-group city">
+                    
+                </div>
             </div>
             <div class="col-md-9 forecast">
                 <div class="row">
@@ -46,7 +48,6 @@
                                 <p id="humidity"></p>
                                 <p id="wind"></p>
                                 <p id="uv"></p>
-                                
                             </div>
                           </div>
                     </div>
@@ -58,10 +59,10 @@
                     <div class="col">
                             <div class="card daily">
                                 <div class="card-body">
-                                    <p id="date1">test</p>
-                                    <p id="icon1">test</p>
-                                    <p id="temp1">test</p>
-                                    <p id="humid1">test</p>
+                                    <p id="date1"></p>
+                                    <p id="icon1"></p>
+                                    <p id="temp1"></p>
+                                    <p id="humid1"></p>
                                 </div>
                             </div> 
                         </div>
@@ -104,10 +105,8 @@
                               <p id="humid5"></p>
                             </div>
                         </div>   
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
