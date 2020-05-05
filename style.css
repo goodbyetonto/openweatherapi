@@ -1,0 +1,36 @@
+.search {
+    height: 500px;
+}
+
+.forecast {
+    height: 1000px;
+}
+
+.current {
+    height: 400px;
+}
+
+.daily {
+    height: 100px; 
+    background: steelblue;
+    min-width: 150px;
+    max-width: 200px; 
+    min-height: 200px;
+    max-height: 200px;
+    margin-bottom: 15px;
+
+
+}
+
+.card-body {
+    padding-top: 25px;
+    min-height: 400px; 
+}
+
+.extended {
+    justify-content: safe;
+}
+
+.h4 {
+    margin: 20px;
+}
