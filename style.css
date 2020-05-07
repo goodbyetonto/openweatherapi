@@ -19,13 +19,12 @@
     max-height: 200px;
     margin-bottom: 15px;
     display: none;
-
-
 }
 
 .card-body {
     padding-top: 25px;
-    min-height: 400px; 
+    min-height: 400px;
+    font-size: 18px; 
 }
 
 .extended {
@@ -34,4 +33,9 @@
 
 .h4 {
     margin: 20px;
+}
+
+#city {
+    font-size: 45px;
+
 }

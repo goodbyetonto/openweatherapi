@@ -24,17 +24,20 @@
                     <input type="text" class="form-control" id="cityField" placeholder="Search By City Name"
                         aria-label="Search By City" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2 cityBtn">Search</button>
+                        <button class="btn btn-outline-secondary cityBtn" id="button-addon2" type="button">Search</button>
                     </div>
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="zipField" placeholder="Search By Zip Code"
                         aria-label="Zip Code Search" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2 zipBtn">Search</button>
+                        <button class="btn btn-outline-secondary zipBtn" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
                 <div class="list-group city">
+                    
+                        
+                    </button>
                     
                 </div>
             </div>
@@ -43,10 +46,14 @@
                     <div class="col-sm-12 current">
                         <div class="card present">
                             <div class="card-body">
-                                <p id="city"></p><img id="icon1" src=""/>
+                                <p id="city"></p>
+                                <br>
                                 <p id="temp"></p>
+                                <br>
                                 <p id="humidity"></p>
+                                <br>
                                 <p id="wind"></p>
+                                <br>
                                 <p id="uv"></p>
                             </div>
                           </div>
@@ -110,15 +117,31 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js">
+    </script>
+
+    <script 
+        src="script.js">
+    </script>
+
+    <script 
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>
