@@ -41,15 +41,21 @@ $(document).ready(function () {
     };
 
     function qeuryExt(respext) {
-        debugger
         const cardBody = $(".card-body"); 
         let counter = 1; 
         for (i = 0; i < 40; i += 8) {
             const unixTime = respext.list[i].dt; 
             const convTime = moment.unix(unixTime).format("MM/DD/YYYY");
+            const tempKel = respext.list[i].main.temp; 
+            const tempFar = Math.round(tempKel * 9/5 - 459.67);
+            const humid = respext.list[i].main.humidity; 
             const day = $(`.${counter}`); 
-            day.append($("<p></p>")); 
-            day.html(convTime); 
+            const date = $("<p></p>").html(convTime); 
+            const temp = $("<p></p>").html(tempFar); 
+            const humidity = $("<p></p>").html(humid); 
+            day.append(date, temp, humidity);
+
+            
             counter++; 
         };
         daily.show(); 
