@@ -5,9 +5,10 @@ $(document).ready(function () {
     let counter = 0;
     //var zip = $("#zipField");
     var cityBtn = $(".cityBtn");
+    var savedCityBtn = $(".city"); 
     //var zipBtn = $(".zipBtn");
     var key = "54763b00d037c47de6a2388f5546c0da";
-    //const iconURL = "http://openweathermap.org/img/wn/10d@2x.png"
+    const iconURL = "http://openweathermap.org/img/wn/10d@2x.png"
     //var queryZip = "api.openweathermap.org/data/2.5/forecast?id=" + zip + "&appid=" + key;
 
     
@@ -17,27 +18,33 @@ $(document).ready(function () {
         newBtn.attr({ type: "button", class: "list-group-item list-group-item-action", id: `city${counter}` });
         newBtn.html(city);
         cityList.append(newBtn);
+
     };
+
+    savedCityBtn.click(function() {
+
+    })
+    
 
 
     function currentWeather(resp, city, respuv) {
         const dateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-        const tempKel = resp.main.temp;
-        const tempFar = Math.round(tempKel * 9 / 5 - 459.67);
+        const temp = resp.main.temp;
         const uvI = respuv.value; 
         const humid = resp.main.humidity; 
         const windy = resp.wind.speed; 
-        //const cardBody = $(".card-body"); 
         const location = $("#city"); 
-        const temp = $("#temp"); 
+        //const icon = $("<a></a>");
+        //icon.attr({class: "icon", href: });
+        const tempId = $("#temp"); 
         const humidity = $("#humidity");
         const wind = $("#wind");
         const uv = $("#uv");
-        location.text(city + "( " + dateTime + " )"); 
-        temp.text("Tempearature: " + tempFar + "°F"); 
+        location.html(city + "( " + dateTime + " )"); 
+        tempId.html("Tempearature: " + temp + "°F"); 
         humidity.html("Humidity: " + humid + "%"); 
-        wind.text("Wind Speed: " + windy + "mph"); 
-        uv.text("UV Index: " + uvI); 
+        wind.html("Wind Speed: " + windy + "mph"); 
+        uv.html("UV Index: " + uvI); 
     };
 
 
@@ -46,25 +53,20 @@ $(document).ready(function () {
         for (i = 0; i < 40; i += 8) {
             const unixTime = respext.list[i].dt; 
             const convTime = moment.unix(unixTime).format("MM/DD/YYYY");
-            let tempLoSum = 0; 
-            let tempHiSum = 0; 
-            for (j = 0; j < 8; j++) {
-                const tempKelMin = respext.list[i].main.temp_min; 
-                const tempKelMax = respext.list[i].main.temp_max;
-                tempLoSum += tempKelMin; 
-                tempHiSum += tempKelMax;
+            let hiLoArray = []; 
+            for (j = i; j < (i + 8); j++) {
+                hiLoArray.push(respext.list[j].main.temp);    
             }
-            const avgMin = tempLoSum/8; 
-            const avgMax = tempHiSum/8;
-            const tempFarMin = Math.round(avgMin * 9/5 - 459.67);
-            const tempFarMax = Math.round(avgMax * 9/5 - 459.67);
+            const tempHi = Math.round(Math.max(...hiLoArray));
+            const tempLo = Math.round(Math.min(...hiLoArray)); 
             const humid = respext.list[i].main.humidity; 
             const day = $(`.${counter}`); 
-            const date = $("<p></p>").text(convTime); 
-            const tempLo = $("<p></p>").text("Low Temp: " + tempFarMin + "°F"); 
-            const tempHi = $("<p></p>").text("Hight Temp: " + tempFarMax + "°F"); 
+            const date = $("<p></p>").text(convTime);
+            date.css("class", "card-text");
+            const tempLow = $("<p></p>").text("Low Temp: " + tempLo + "°F"); 
+            const tempHigh = $("<p></p>").text("High Temp: " + tempHi + "°F"); 
             const humidity = $("<p></p>").text("Humidity: " + humid + "%"); 
-            day.append(date, tempLo, tempHi, humidity);
+            day.append(date, tempLow, tempHigh, humidity);
             counter++; 
         }
         daily.show(); 
@@ -87,8 +89,9 @@ $(document).ready(function () {
     cityBtn.click(function () {
         counter++;
         var city = $("#cityField").val();
-        const queryCityCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key;
-        const queryCityExt = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + key;
+        const queryCityCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + key;
+        const queryCityExt = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&appid=" + key;
+        console.log(queryCityExt); 
         addCity(city, counter);
         $.ajax({
             url: queryCityCurrent,
